@@ -6,9 +6,9 @@ This discord bot encourages and inspires the user when they express that they ar
 ## Installation 
 
 ## Contributors
-> richardd
-> person25square
-> StealTempo3662
+richardd
+person25square
+StealTempo3662
 
 
 ## Commands
