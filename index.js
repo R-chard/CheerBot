@@ -10,7 +10,7 @@ const languageClient = new language.LanguageServiceClient()
 // Instantiates discord client
 const client = new Discord.Client();
 
-const SAD_THRESHOLD = -0.7
+const SAD_THRESHOLD = -0.75
 
 client.on('ready', () => {
   console.log('The bot has started')
@@ -27,7 +27,7 @@ client.on('message', async (msg) => {
   // gets random dog image from API
   else if (msg.content.startsWith('!dog')){
     const message = "Hey there. Are you feeling down? What about a random image of a dog to cheer you up. Aren't they adorable?"
-    msg.reply(message + '\nhttps://place.dog/300/200')
+    msg.reply(message + '\nhttps://place.dog/600/400')
   }
   
   else{
@@ -39,7 +39,7 @@ client.on('message', async (msg) => {
       const sentiment = result.documentSentiment
 
       if (sentiment.score < SAD_THRESHOLD){
-          const reassuring_msg = "Dont be sad. Perhaps this positive quote would make you feel better!\n"
+          const reassuring_msg = "Dont be so negative. Perhaps this positive quote would help cheer you up!\n"
           msg.reply(reassuring_msg + '\n' + positivityAPI.random())
       }
   }
