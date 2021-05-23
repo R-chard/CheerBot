@@ -1,0 +1,26 @@
+{
+  "name": "positivity-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/language": "^4.2.3",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "positivity-api": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://R-chard:LEARNet4216,@github.com/R-chard/positivity-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/R-chard/positivity-bot/issues"
+  },
+  "homepage": "https://github.com/R-chard/positivity-bot#readme"
+}
