@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Google cloud key
+service_account_key.json
+
 # compiled output
 /dist
 /tmp
