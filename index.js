@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const positivityAPI = require('positivity-api') 
 const keepAlive = require('./server.js')
 const language = require('@google-cloud/language')
+require('dotenv').config();
 
 // Instantiates language client
 const languageClient = new language.LanguageServiceClient()
@@ -9,14 +10,13 @@ const languageClient = new language.LanguageServiceClient()
 // Instantiates discord client
 const client = new Discord.Client();
 
-//words that will trigger a encouragement response
-sadWords = ["sad","bad","cry"]
+const SAD_THRESHOLD = -0.7
 
 client.on('ready', () => {
   console.log('The bot has started')
 })
 
-client.on('message', (msg) => {
+client.on('message', async (msg) => {
   
   // gets random quote from API
   if (msg.content.startsWith('!quote')) {
@@ -29,10 +29,19 @@ client.on('message', (msg) => {
     const message = "Hey there. Are you feeling down? What about a random image of a dog to cheer you up. Aren't they adorable?"
     msg.reply(message + '\nhttps://place.dog/300/200')
   }
+  
+  else{
+      const document = {
+          content: msg.content,
+          type: "PLAIN_TEXT",
+      };
+      const [result] = await languageClient.analyzeSentiment({document})
+      const sentiment = result.documentSentiment
 
-  // detects if a user uses a 'sadword' in thier sentance and sends a encouraging message
-  if (sadWords.some(word => msg.content.includes(word))) {
-    msg.reply(positivityAPI.random())
+      if (sentiment.score < SAD_THRESHOLD){
+          const reassuring_msg = "Dont be sad. Perhaps this positive quote would make you feel better!\n"
+          msg.reply(reassuring_msg + '\n' + positivityAPI.random())
+      }
   }
 
 })
