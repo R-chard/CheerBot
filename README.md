@@ -20,10 +20,10 @@ We also used the following open source APIs for our project
 - Cute dog images -> https://place.dog
 
 ## Usage 🔨
-To use our discord bot, simply add it to your discord server by...
+To use our discord bot, simply add it to your discord server.
 >Note that for security reasons, we do not allow users to run our program directly, since this would mean our tokens and API keys would be compromised
 
 ## Contributors
-[R-chard](https://github.com/R-chard)
-[person25square](https://github.com/Person25square)
-[StealTempo3662](https://github.com/agoodson582)
+[R-chard](https://github.com/R-chard),
+[person25square](https://github.com/Person25square),
+[agoodson582](https://github.com/agoodson582)
